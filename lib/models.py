@@ -7,3 +7,19 @@ Base = declarative_base()
 
 class Dog(Base):
     pass
+    __tablename__ = 'dogs'
+    __table_args__ = (
+        PrimaryKeyConstraint(
+            'id',
+            name='id_pk'
+        ),   
+    )
+    
+    id = Column(Integer())
+    name = Column(String())
+    breed = Column(String())
+    
+    def __repr__(self):
+        return f"Dog {self.id}:" \
+            + f"{self.name}, " \
+            + f"Breed {self.breed}"
